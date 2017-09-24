@@ -1,8 +1,10 @@
 package com.example.hp.twtnews_mvp.model;
 
-/**
- * Created by HP on 2017/4/9.
- */
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
-public class ContentApi {
+public interface ContentApi {
+    @GET("news/{index}")
+    Call<ContentBean> getContent(@Path("index") String index);
 }

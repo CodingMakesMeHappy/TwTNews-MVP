@@ -1,8 +1,12 @@
 package com.example.hp.twtnews_mvp.presenter;
 
-/**
- * Created by HP on 2017/4/5.
- */
+import com.example.hp.twtnews_mvp.model.ListBean;
+
 
 public interface ListPresenter {
+
+    void setListBean(ListBean listBean);
+
+    void loadListBean(int page, int type);
+
 }

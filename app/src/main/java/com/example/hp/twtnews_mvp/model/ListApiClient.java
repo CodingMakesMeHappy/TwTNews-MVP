@@ -1,6 +1,6 @@
 package com.example.hp.twtnews_mvp.model;
 
-import java.io.IOException;
+import com.example.hp.twtnews_mvp.presenter.ListPresenter;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -10,10 +10,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class ListApiClient {
-    ListBean listBean;
+    ListPresenter listPresenter;
 
-    public ListBean load(int page) {
-        System.out.println(" public ListBean load(int page) {");
+    public ListApiClient(ListPresenter listPresenter) {
+        this.listPresenter = listPresenter;
+    }
+
+    public void loadList(int page, int type) {
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl("http://open.twtstudio.com/api/v1/")
@@ -21,25 +24,22 @@ public class ListApiClient {
 
         ListApi listApi = retrofit.create(ListApi.class);
 
-        Call<ListBean> call = listApi.getList(String.valueOf(page));
+        Call<ListBean> call = listApi.getList(String.valueOf(page), String.valueOf(type));
 
         call.enqueue(new Callback<ListBean>() {
             @Override
             public void onResponse(Call<ListBean> call, Response<ListBean> response) {
                 if (response.isSuccessful()) {
-                    listBean = response.body();
-                    System.out.println("suaaaa" + listBean.error_code);
-
+                    listPresenter.setListBean(response.body());
                 } else {
-                System.out.println("failaaaa");
                 }
             }
 
             @Override
             public void onFailure(Call<ListBean> call, Throwable t) {
-                System.out.println("Failaaaa");
+
             }
         });
-        return listBean;
     }
+
 }

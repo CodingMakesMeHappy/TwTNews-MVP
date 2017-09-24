@@ -1,8 +1,10 @@
 package com.example.hp.twtnews_mvp.presenter;
 
-/**
- * Created by HP on 2017/4/9.
- */
+import com.example.hp.twtnews_mvp.model.ContentBean;
 
-public class ContentPresenter {
+
+public interface ContentPresenter {
+    public void loadContent(int index);
+
+    public void setContent(ContentBean contentBean);
 }

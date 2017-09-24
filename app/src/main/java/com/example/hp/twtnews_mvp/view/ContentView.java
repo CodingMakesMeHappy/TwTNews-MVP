@@ -1,8 +1,7 @@
 package com.example.hp.twtnews_mvp.view;
 
-/**
- * Created by HP on 2017/4/9.
- */
+import com.example.hp.twtnews_mvp.model.ContentBean;
 
 public interface ContentView {
+    void setDate(ContentBean contentBean);
 }

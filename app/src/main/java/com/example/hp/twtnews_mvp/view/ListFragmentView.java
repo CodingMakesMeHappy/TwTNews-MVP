@@ -1,8 +1,7 @@
 package com.example.hp.twtnews_mvp.view;
 
-/**
- * Created by HP on 2017/4/11.
- */
+import com.example.hp.twtnews_mvp.model.ListBean;
 
 public interface ListFragmentView {
+    void setAdapter(ListBean listBean);
 }

@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
     <android.support.v7.widget.Toolbar
-        android:background="@color/primary"
         android:id="@+id/list_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/primary">
+
         <TextView
             android:id="@+id/list_toolbar_textView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/list_toolbar"/>
+            android:text="@string/list_toolbar" />
     </android.support.v7.widget.Toolbar>
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/list_swipeRefreshLayout"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/list_tabLayout"
+        app:tabMode="scrollable"
+        android:background="@color/primary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-<android.support.v7.widget.RecyclerView
-    android:id="@+id/list_recyclerView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+        android:layout_height="wrap_content"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/list_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
-</android.support.v7.widget.RecyclerView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+
 </LinearLayout>
